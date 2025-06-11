@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Quote Generator</h1>
+        <div class="quote-box">
+            <p id="quote">Click the button to generate a quote</p>
+            <p id="author"></p>
+            <p id="category" class="category-tag"></p>
+        </div>
+        <div class="buttons">
+            <button id="generate-btn">Generate Quote</button>
+            <button id="tweet-btn" onclick="tweetQuote()"><i class="fab fa-twitter"></i> Tweet</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function tweetQuote() {
+            const quote = document.getElementById('quote').textContent;
+            const author = document.getElementById('author').textContent;
+            const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(quote + ' ' + author)}`;
+            window.open(twitterUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
